@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/api.js"
+    "dev": "nodemon src/api.js",
+    "ec2": "ssh -i 'app-tooned-key.pem' ubuntu@ec2-15-228-166-64.sa-east-1.compute.amazonaws.com"
   },
   "dependencies": {
     "aws-sdk": "^2.1270.0",
