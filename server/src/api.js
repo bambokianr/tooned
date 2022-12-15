@@ -29,6 +29,10 @@ function getFormattedGenreName(key) {
   return genresJson[key];
 };
 
+router.get("/", (req, res) => {
+  res.json({ successMessage: "server is up!" });
+});
+
 router.get("/genres", async (req, res) => {
   let { weeklyDate } = req.query;
   if (!weeklyDate) weeklyDate = getLastFridayDate();
