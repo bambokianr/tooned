@@ -1,7 +1,10 @@
 const fs = require('fs');
+const path = require('path');
 
 function saveData(fileName, fileContent) {
-  fs.writeFile(`./src/data/${fileName}.json`, JSON.stringify(fileContent), "utf8", (error, _) => {
+  const filePath = path.join(__dirname, "/data", `/${fileName}.json`);
+
+  fs.writeFile(filePath, JSON.stringify(fileContent), "utf8", (error, _) => {
     if (err) {
       console.error("[ERROR] localStorage/saveData", err);
     } else {
@@ -12,7 +15,9 @@ function saveData(fileName, fileContent) {
 
 function readData(fileName) {
   try {
-    const fileContent = fs.readFileSync(`./src/data/${fileName}.json`, "utf-8");
+    const filePath = path.join(__dirname, "/data", `/${fileName}.json`);
+
+    const fileContent = fs.readFileSync(filePath, "utf-8");
     return JSON.parse(fileContent);
   } catch (err) {
     console.error("[ERROR] localStorage/readData", err);
