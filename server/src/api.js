@@ -30,7 +30,7 @@ function getFormattedGenreName(key) {
 };
 
 router.get("/", (req, res) => {
-  res.json({ successMessage: "server is up!" });
+  res.json({ message: "server is up!" });
 });
 
 router.get("/genres", async (req, res) => {
@@ -51,7 +51,7 @@ router.get("/genres", async (req, res) => {
     res.json({ weeklyDate, genres });
   } catch (err) {
     console.log("GET/genres - read file error", err);
-    res.status(500).json({ errorMessage: `could not read ${weeklyDate.replace(/\//g, "")}.json file` });
+    res.status(500).json({ message: `could not read ${weeklyDate.replace(/\//g, "")}.json file` });
   }
 });
 
@@ -75,12 +75,12 @@ router.get("/releases", async (req, res) => {
         getFormattedGenreName(item.genreName) === genreName)[0];
 
       (!data)
-        ? res.status(400).json({ errorMessage: `'genreName' not found in ${weeklyDate}.json file` })
+        ? res.status(400).json({ message: `'genreName' not found in ${weeklyDate}.json file` })
         : res.json({ ...data, genreName: getFormattedGenreName(data.genreName) });
     };
   } catch (err) {
     console.log("GET/releases - read file error", err);
-    res.status(500).json({ errorMessage: `could not read ${weeklyDate}.json file` });
+    res.status(500).json({ message: `could not read ${weeklyDate}.json file` });
   };
 });
 
