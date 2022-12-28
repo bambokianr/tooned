@@ -5,8 +5,8 @@ function saveData(fileName, fileContent) {
   const filePath = path.join(__dirname, "/data", `/${fileName}.json`);
 
   fs.writeFile(filePath, JSON.stringify(fileContent), "utf8", (error, _) => {
-    if (err) {
-      console.error("[ERROR] localStorage/saveData", err);
+    if (error) {
+      console.error("[ERROR] localStorage/saveData", error);
     } else {
       console.log(`'${fileName}.json' created locally!`);
     };
