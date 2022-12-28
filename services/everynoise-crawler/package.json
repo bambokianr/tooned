@@ -1,0 +1,18 @@
+{
+  "name": "lambda-crawler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1275.0",
+    "chrome-aws-lambda": "^10.1.0",
+    "puppeteer": "^19.4.1",
+    "puppeteer-core": "^10.4.0"
+  }
+}
